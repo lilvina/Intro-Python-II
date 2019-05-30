@@ -7,3 +7,6 @@ class Player:
 
   def __str__(self):
     return f"{self.name}, {self.current_room}."
+
+  def current_inventory(self):
+    return ",".join(str(item) for item in self.inventory)
