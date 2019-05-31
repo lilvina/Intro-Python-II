@@ -69,13 +69,13 @@ def start():
     cmd = input("\n Choose a direction: [n] North, [e] East, [s] South, [w] West, Actions: [p] Pickup Item [d], Drop Item, Quit: [q] End Game ").split()
     one_cmd = cmd[0]
     two_cmd = cmd[-1]
-    if cmd == "q":
+    if one_cmd == "q":
       print("Game over!")
       break
 
-    elif cmd == "n" or cmd == "e" or cmd == "s" or cmd == "w":
+    elif one_cmd == "n" or one_cmd == "e" or one_cmd == "s" or one_cmd == "w":
       try:
-        moveLoop(location_start, cmd)
+        moveLoop(location_start, one_cmd)
       except AttributeError:
         print("Cannot go that direction")
 
@@ -86,11 +86,11 @@ def start():
           for y in room_items:
             if i.name == two_cmd:
               player.inventory.append(i.name)
-              room_item.remove(i)
+              room_items.remove(i)
               print(f"\n You have picked the {i.name}")
               break
             else:
-              print("Cannot find that item in this room")
+              print("Item not found in this room")
 
     elif one_cmd == "d":
       player_items = player.inventory

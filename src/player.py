@@ -4,9 +4,10 @@ class Player:
   def __init__(self, name, current_room):
     self.name = name
     self.current_room = current_room
+    self.inventory = []
 
-  def __str__(self):
-    return f"{self.name}, {self.current_room}."
+  def __repr__(self):
+    return f"{self.current_room}."
 
   def current_inventory(self):
     return ",".join(str(item) for item in self.inventory)
