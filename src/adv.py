@@ -91,6 +91,9 @@ def start():
               break
             else:
               print("Item not found in this room")
+      except AttributeError:
+        print("No item")
+
 
     elif one_cmd == "d":
       player_items = player.inventory
